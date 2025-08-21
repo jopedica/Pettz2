@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Petzzy — O cuidado que seu pet merece</title>
+  <meta name="color-scheme" content="light">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <svg class="brand__pin" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 7.5 12.5 7.5 12.5s7.5-7.25 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/>
+        </svg>
+        Petzzy
+      </a>
+      <nav class="nav" aria-label="Primária">
+        <a href="servicos.html">Serviços</a>
+        <a href="agendamentos.html">Meus agendamentos</a>
+        <a href="quem_somos.html">Quem somos</a>
+        <a class="btn" href="entrar.html">Entrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <h1>O cuidado que seu pet<br> merece, <strong>onde você estiver.</strong></h1>
+        <p>Agende banho &amp; tosa, consulta veterinária, passeio e adestramento com profissionais próximos.</p>
+      </div>
+<div class="hero__art" role="img" aria-label="Família de pets">
+  <img src="pets.png" alt="Ilustração de cachorro, gato, coelho e outro cão juntos">
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS POPULARES -->
+<section id="servicos" class="container panel" aria-labelledby="tit-servicos">
+  <div class="panel__inner">
+    <h2 id="tit-servicos">Serviços Populares</h2>
+
+    <div class="grid" role="list">
+      <!-- Card 1 -->
+<article class="card" role="listitem">
+  <div class="card__thumb">
+    <img src="banho.png" alt="Ícone de Banho e Tosa">
+  </div>
+  <div class="card__body">
+    <span class="pill">Banho &amp; Tosa</span>
+  </div>
+</article>
+
+      <!-- Card 2 -->
+<article class="card" role="listitem">
+  <div class="card__thumb">
+    <img src="consulta.png" alt="Ícone de Consulta veterinária">
+  </div>
+  <div class="card__body">
+    <span class="pill">Consulta veterinária</span>
+  </div>
+</article>
+
+      <!-- Card 3 -->
+<article class="card" role="listitem">
+  <div class="card__thumb">
+    <img src="passeio.png" alt="Ícone de Passeio" class="icon-img">
+  </div>
+  <div class="card__body">
+    <span class="pill">Passeio</span>
+  </div>
+</article>
+      <!-- Card 4 -->
+<article class="card" role="listitem">
+  <div class="card__thumb">
+    <img src="adestramento.png" alt="Ícone de Adestradores" class="icon-img">
+  </div>
+  <div class="card__body">
+    <span class="pill">Adestradores</span>
+  </div>
+</article>
+</section>
+
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    © <span id="year"></span> Petzzy • Todos os direitos reservados
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
