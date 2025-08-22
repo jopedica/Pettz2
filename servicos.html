@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Petzzy — Serviços</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">Petzzy</a>
+      <nav class="nav">
+        <a href="servicos.html">Serviços</a>
+        <a href="agendamentos.html">Meus agendamentos</a>
+        <a href="quem_somos.html">Quem somos</a>
+        <a class="btn" href="login.html">Entrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO CURTO -->
+  <section class="hero hero--soft">
+    <div class="container hero__mini">
+      <h1>Serviços</h1>
+      <p>Escolha um serviço para saber mais e encontrar profissionais.</p>
+    </div>
+  </section>
+
+  <main class="container pad-y">
+    <section class="services">
+      <!-- Coluna esquerda: cards -->
+      <div class="services__cards">
+        <button class="service-card is-active" data-key="veterinario">
+          <div class="service-card__thumb">
+            <img src="assets/consulta.png" alt="" />
+          </div>
+          <span class="service-card__name">Veterinário</span>
+        </button>
+
+        <button class="service-card" data-key="banho">
+          <div class="service-card__thumb">
+            <img src="assets/banho.png" alt="" />
+          </div>
+          <span class="service-card__name">Banho &amp; Tosa</span>
+        </button>
+
+        <button class="service-card" data-key="adestramento">
+          <div class="service-card__thumb">
+            <img src="assets/adestramento.png" alt="" />
+          </div>
+          <span class="service-card__name">Adestramento</span>
+        </button>
+
+        <button class="service-card" data-key="dogwalk">
+          <div class="service-card__thumb">
+            <img src="assets/passeio.png" alt="" />
+          </div>
+          <span class="service-card__name">Dog Walk</span>
+        </button>
+      </div>
+
+      <!-- Coluna direita: detalhes -->
+      <aside class="service-details card" id="details">
+        <div class="service-details__head">
+          <img id="detIcon" src="assets/consulta.png" alt="" />
+          <div>
+            <h2 id="detTitle" class="h3">Veterinário</h2>
+            <p id="detSubtitle" class="muted">Atendimento domiciliar e preventivo</p>
+          </div>
+        </div>
+
+        <p id="detText">
+          Consultas em casa para conforto do pet: avaliação clínica, orientações de saúde, vacinas e pequenos procedimentos.
+        </p>
+
+        <ul id="detList" class="list list--check">
+          <li>Vacinação e check-up</li>
+          <li>Orientação de alimentação e rotina</li>
+          <li>Atendimento humanizado no ambiente do pet</li>
+        </ul>
+
+        <div class="service-details__cta">
+          <a class="btn" href="buscar.html?q=Veterinário">Encontrar profissionais</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Petzzy • Todos os direitos reservados
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Conteúdo dos serviços
+    const SERVICE_CONTENT = {
+      veterinario: {
+        title: "Veterinário",
+        subtitle: "Atendimento domiciliar e preventivo",
+        icon: "assets/consulta.png",
+        text: "Consultas em casa para conforto do pet: avaliação clínica, orientações de saúde, vacinas e pequenos procedimentos.",
+        bullets: ["Vacinação e check-up", "Orientação de alimentação e rotina", "Atendimento humanizado no ambiente do pet"],
+        query: "Veterinário"
+      },
+      banho: {
+        title: "Banho & Tosa",
+        subtitle: "Higiene, bem-estar e cuidado com carinho",
+        icon: "assets/banho.png",
+        text: "Banho relaxante, tosa conforme a raça e limpeza completa. Tudo feito por profissionais experientes.",
+        bullets: ["Tosa higiênica e completa", "Secagem segura e sem estresse", "Produtos adequados para cada tipo de pele"],
+        query: "Banho e tosa"
+      },
+      adestramento: {
+        title: "Adestramento",
+        subtitle: "Treino positivo para uma rotina equilibrada",
+        icon: "assets/adestramento.png",
+        text: "Aulas personalizadas com reforço positivo para melhorar obediência, socialização e reduzir comportamentos indesejados.",
+        bullets: ["Protocolos de reforço positivo", "Planos sob medida", "Acompanhamento da evolução"],
+        query: "Adestramento"
+      },
+      dogwalk: {
+        title: "Dog Walk",
+        subtitle: "Passeios seguros e divertidos",
+        icon: "assets/passeio.png",
+        text: "Passeios diários com dog walkers de confiança, respeitando o ritmo e as necessidades do seu pet.",
+        bullets: ["Roteiros seguros no bairro", "Relatório do passeio", "Horários flexíveis"],
+        query: "Passeios"
+      }
+    };
+
+    // Interação dos cards
+    const cards = document.querySelectorAll(".service-card");
+    const detIcon = document.getElementById("detIcon");
+    const detTitle = document.getElementById("detTitle");
+    const detSubtitle = document.getElementById("detSubtitle");
+    const detText = document.getElementById("detText");
+    const detList = document.getElementById("detList");
+    const detCta = document.querySelector(".service-details__cta a");
+
+    function selectService(key) {
+      const data = SERVICE_CONTENT[key];
+      if (!data) return;
+
+      cards.forEach(c => c.classList.toggle("is-active", c.dataset.key === key));
+      detIcon.src = data.icon;
+      detTitle.textContent = data.title;
+      detSubtitle.textContent = data.subtitle;
+      detText.textContent = data.text;
+      detList.innerHTML = data.bullets.map(b => `<li>${b}</li>`).join("");
+      detCta.href = `buscar.html?q=${encodeURIComponent(data.query)}`;
+    }
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => selectService(card.dataset.key));
+    });
+  </script>
+</body>
+</html>
