@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Petzzy — Cadastro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html">Petzzy</a>
+      <nav class="nav">
+        <a href="servicos.html">Serviços</a>
+        <a href="agendamentos.html">Meus agendamentos</a>
+        <a href="quem_somos.html">Quem somos</a>
+        <a class="btn" href="login.html">Entrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container pad-y">
+    <h1 class="auth__title">Criar conta</h1>
+
+    <form class="auth-form" action="#" method="post">
+      <label class="label" for="nome">Nome completo</label>
+      <input class="input" id="nome" name="nome" type="text" placeholder="Digite seu nome completo" required />
+
+      <label class="label" for="email">E-mail</label>
+      <input class="input" id="email" name="email" type="email" placeholder="Digite seu e-mail" required />
+
+      <label class="label" for="senha">Senha</label>
+      <div class="input-icon">
+        <input class="input" id="senha" name="senha" type="password" placeholder="Crie uma senha" minlength="6" required />
+        <button class="toggle-pass" type="button" data-target="senha" aria-label="Mostrar senha">👁️</button>
+      </div>
+
+      <label class="label" for="confirmar-senha">Confirmar senha</label>
+      <div class="input-icon">
+        <input class="input" id="confirmar-senha" name="confirmar-senha" type="password" placeholder="Confirme sua senha" minlength="6" required />
+        <button class="toggle-pass" type="button" data-target="confirmar-senha" aria-label="Mostrar senha">👁️</button>
+      </div>
+
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Petzzy • Todos os direitos reservados
+  </footer>
+
+  <script>
+    // ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // alternar exibição da senha
+    (function () {
+      document.querySelectorAll('.toggle-pass').forEach(btn => {
+        const input = document.getElementById(btn.dataset.target);
+        btn.addEventListener('click', () => {
+          input.type = input.type === 'password' ? 'text' : 'password';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
