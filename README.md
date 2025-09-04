@@ -58,29 +58,5 @@ flask --app run.py seed
 # 5) executar
 python run.py
 # http://127.0.0.1:5000/ 
-```
-🗺️ Estrutura
-Pettzy/
-├── app/
-│   ├── __init__.py
-│   ├── models.py
-│   ├── routes.py
-│   ├── static/
-│   │   ├── styles.css
-│   │   └── script.js
-│   └── templates/
-│       ├── base.html
-│       ├── index.html
-│       ├── servicos.html
-│       ├── quem_somos.html
-│       ├── login.html
-│       ├── cadastro.html
-│       └── admin/
-│           ├── dashboard.html
-│           ├── service_form.html
-│           └── about_form.html
-├── migrations/           # controle de schema (Flask-Migrate)
-├── config.py
-├── run.py
-├── requirements.txt
-└── README.md
+
+
