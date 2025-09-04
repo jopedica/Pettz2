@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% set story  = (blocks | selectattr('section','equalto','story')  | list | first) %}
+{% set mission = (blocks | selectattr('section','equalto','mission') | list | first) %}
+{% set vision  = (blocks | selectattr('section','equalto','vision')  | list | first) %}
+{% set values  = (blocks | selectattr('section','equalto','values')  | list | first) %}
+
+
 <!-- HERO CURTO -->
 <section class="hero hero--soft">
   <div class="container hero__mini">
@@ -11,54 +17,42 @@
 
 <!-- CONTEÚDO -->
 <main class="container pad-y">
-  <!-- Sobre -->
-  <section class="about grid-2 card">
-    <div>
-      <h2 class="h3">Nossa história</h2>
-      <p>
-        Somos estudantes do <strong>UniCEUB</strong>, apaixonados por tecnologia e pelo bem-estar dos animais.
-        Este projeto foi criado para conectar tutores a profissionais de confiança em serviços como
-        banho &amp; tosa, consultas veterinárias, passeios e adestramento.
-      </p>
-      <p>
-        Acreditamos que a tecnologia pode facilitar o cuidado com os animais de estimação,
-        garantindo mais <strong>praticidade, segurança e carinho</strong> para tutores e pets.
-      </p>
-      <p>
-        O <strong>Petzzy</strong> nasceu como um projeto acadêmico, com visão de se tornar uma solução real para a comunidade.
-      </p>
-
-      <!-- badges rápidos -->
-      <ul class="badges">
-        <li class="badge">Praticidade</li>
-        <li class="badge">Segurança</li>
-        <li class="badge">Atendimento humanizado</li>
-      </ul>
+<!-- Sobre -->
+<section class="about grid-2 card">
+  <div>
+    <h2 class="h3">{{ story.title if story else 'Nossa história' }}</h2>
+    <div class="richtext">
+      {{ story.body | safe if story and story.body else
+         "Conteúdo em breve. Edite em /admin → Quem Somos." }}
     </div>
 
-    <!-- Ilustra/Imagem opcional -->
-    <div class="about__ilustra" aria-hidden="true">
-      <!-- troque por uma imagem se quiser -->
-      <!-- <img src="{{ url_for('static', filename='pets.jpg') }}" alt="" /> -->
-      <span>🐾</span>
-    </div>
-  </section>
+    <ul class="badges">
+      <li class="badge">Praticidade</li>
+      <li class="badge">Segurança</li>
+      <li class="badge">Atendimento humanizado</li>
+    </ul>
+  </div>
+  <div class="about__ilustra" aria-hidden="true">
+    <span>🐾</span>
+  </div>
+</section>
 
-  <!-- Missão / Visão / Valores -->
-  <section class="values">
-    <article class="value-card">
-      <h3>Missão</h3>
-      <p>Conectar tutores e profissionais, tornando o cuidado com pets fácil e acessível.</p>
-    </article>
-    <article class="value-card">
-      <h3>Visão</h3>
-      <p>Ser referência em serviços para pets com atendimento humanizado e confiável.</p>
-    </article>
-    <article class="value-card">
-      <h3>Valores</h3>
-      <p>Respeito aos animais, confiança, transparência e tecnologia a serviço do bem-estar.</p>
-    </article>
-  </section>
+<!-- Missão / Visão / Valores -->
+<section class="values">
+  <article class="value-card">
+    <h3>{{ mission.title if mission else 'Missão' }}</h3>
+    <p>{{ mission.body if mission and mission.body else '—' }}</p>
+  </article>
+  <article class="value-card">
+    <h3>{{ vision.title if vision else 'Visão' }}</h3>
+    <p>{{ vision.body if vision and vision.body else '—' }}</p>
+  </article>
+  <article class="value-card">
+    <h3>{{ values.title if values else 'Valores' }}</h3>
+    <p>{{ values.body if values and values.body else '—' }}</p>
+  </article>
+</section>
+
 
   <!-- CTA simples -->
   <section class="cta card">

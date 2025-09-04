@@ -278,3 +278,23 @@ img{max-width:100%; display:block}
 .auth-side--center { text-align: center; }
 .auth-side--center p { max-width: 48ch; margin: 8px auto 16px; }
 .auth-side--center .btn, .auth-side--center .btn--wide { margin: 0 auto; display: inline-block; }
+
+
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.flash{margin:12px 0}
+.alert{padding:10px 12px;border-radius:12px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.alert-success{background:#ecfdf5;color:#065f46}
+.alert-info{background:#eff6ff;color:#1e40af}
+.alert-warning{background:#fff7ed;color:#9a3412}
+.alert-danger{background:#fef2f2;color:#991b1b}
+
+.form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.form-row input,.form-row textarea{width:100%}
+.form-actions{display:flex;gap:10px;margin-top:8px}
+
+.pill{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-size:.75rem}
+.pill--ok{background:#ecfdf5;color:#065f46}
+.pill--muted{background:#f3f4f6;color:#374151}
+
+.actions form.inline { display: inline; }
+

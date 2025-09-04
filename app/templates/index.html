@@ -64,8 +64,8 @@
 <!-- HIGIENE DO PET -->
 <section class="container panel panel--spaced" aria-labelledby="tit-higiene">
   <div class="panel__inner grid-2 grid-2--rev">
-    <div class="about__ilustra" aria-hidden="true">
-      <span>🛁</span>
+    <div class="about__ilustra">
+      <img src="{{ url_for('static', filename='banhopet.jpg') }}" alt="Cachorro tomando banho">
     </div>
     <div>
       <h2 id="tit-higiene">A higiene do pet é indicada por veterinários</h2>
@@ -83,6 +83,7 @@
 <!-- ADESTRAMENTO -->
 <section class="container panel panel--spaced" aria-labelledby="tit-filhote">
   <div class="panel__inner grid-2">
+    <!-- Coluna 1: texto -->
     <div>
       <h2 id="tit-filhote">Aprenda a se comunicar com o seu filhote</h2>
       <p>Adestre seu pet e incentive comportamentos positivos, como:</p>
@@ -94,10 +95,15 @@
       </ul>
       <p>Filhotes têm muita energia e ainda estão aprendendo a socializar. Com o adestramento, você ensina bons hábitos desde os primeiros meses.</p>
     </div>
+
+    <!-- Coluna 2: imagem -->
     <div class="about__ilustra" aria-hidden="true">
-      <span>🐕</span>
+      <img src="{{ url_for('static', filename='adestramentocao.jpg') }}"
+           alt=""
+           loading="lazy">
     </div>
   </div>
 </section>
+
 
 {% endblock %}
