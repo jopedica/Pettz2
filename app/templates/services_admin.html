@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="admin-header">
+  <h1>Gerir serviços</h1>
+  <a class="btn" href="{{ url_for('main.services_new') }}">+ Novo</a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr><th>ID</th><th>Nome</th><th>Preço</th><th>Ativo</th><th>Ações</th></tr>
+  </thead>
+  <tbody>
+  {% for s in services %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.name }}</td>
+      <td>R$ {{ '%.2f'|format(s.price) }}</td>
+      <td>{{ 'Sim' if s.is_active else 'Não' }}</td>
+      <td class="actions">
+        <a class="btn-sm" href="{{ url_for('main.services_edit', service_id=s.id) }}">Editar</a>
+        <form method="post" action="{{ url_for('main.services_toggle', service_id=s.id) }}" style="display:inline;">
+          <button class="btn-sm" type="submit">Ativar/Inativar</button>
+        </form>
+        <form method="post" action="{{ url_for('main.services_delete', service_id=s.id) }}" style="display:inline;" onsubmit="return confirm('Excluir este serviço?');">
+          <button class="btn-sm danger" type="submit">Excluir</button>
+        </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
