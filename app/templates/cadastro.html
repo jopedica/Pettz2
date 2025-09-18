@@ -1,25 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Petzzy — Cadastro</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="index.html">Petzzy</a>
-      <nav class="nav">
-        <a href="servicos.html">Serviços</a>
-        <a href="agendamentos.html">Meus agendamentos</a>
-        <a href="quem_somos.html">Quem somos</a>
-        <a class="btn" href="login.html">Entrar</a>
-      </nav>
-    </div>
-  </header>
+{% extends "base.html" %}
+{% block content %}
 
   <main class="container pad-y">
     <h1 class="auth__title">Criar conta</h1>
@@ -64,5 +44,4 @@
       });
     })();
   </script>
-</body>
-</html>
+{% endblock %}
